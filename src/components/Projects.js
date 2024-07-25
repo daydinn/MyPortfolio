@@ -176,7 +176,7 @@ const Projects = () => {
       [projectIndex]:
         prevState[projectIndex] !== undefined
           ? (prevState[projectIndex] + 1) % images.length
-          : 1,
+          : 0,
     }));
   };
 
@@ -255,7 +255,10 @@ const Projects = () => {
                 />
               </div>
               <div className="text-center text-gray-700 mt-2">
-                {currentImageIndex[projectIndex] + 1} / {project.images.length}
+                {currentImageIndex[projectIndex] !== undefined
+                  ? currentImageIndex[projectIndex] + 1
+                  : 1}{" "}
+                / {project.images.length}
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-semibold mb-2">{project.title}</h3>

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { MdOutlineNavigateNext, MdOutlineNavigateBefore } from "react-icons/md";
 import { IoIosCloseCircleOutline } from "react-icons/io";
-import { FaLinkedin, FaGithub } from 'react-icons/fa';
 
 import profilePic from "../assets/profile picture.jpeg";
 import stone1 from "../assets/stone1.png";
@@ -239,6 +238,8 @@ const Projects = () => {
   };
   
   return (
+
+    
     <div className="py-20">
       <div className="container mx-auto w-full lg:w-3/6">
         <h2 className="text-3xl font-bold text-center mb-10">Projects</h2>
@@ -343,14 +344,6 @@ const Projects = () => {
           </div>
         </div>
       )}
-      <div className="flex justify-center items-center space-x-8 mb-10 mt-10">
-<a href="http://www.linkedin.com/in/diyar-aydin-ab902224a" target="_blank" rel="noopener noreferrer">
-  <FaLinkedin className="text-4xl text-teal-500 transition duration-300 hover:text-teal-700" />
-</a>
-<a href="https://github.com/daydinn" target="_blank" rel="noopener noreferrer">
-  <FaGithub className="text-4xl text-teal-500 transition duration-300 hover:text-teal-700" />
-</a>
-</div>
     </div>
 
 

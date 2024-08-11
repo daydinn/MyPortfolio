@@ -1,8 +1,9 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import { FaLinkedin, FaGithub } from 'react-icons/fa';
 
 const Header = () => {
+  const handleKnowMoreClick = () => {
+    window.open('/infos', '_blank', 'noopener,noreferrer');
+  };
 
   return (
     <div className="text-center py-20 bg-white">
@@ -10,15 +11,14 @@ const Header = () => {
       <h2 className="text-2xl mt-4">Computer Science graduate</h2>
       
 
-      {/* Download CV Button */}
+      {/* Know more Button */}
       <div className="mt-6">
-        <a
-  href="/assets/CV_Diyar_Aydin.pdf"
-  download
+        <button
+          onClick={handleKnowMoreClick}
           className="inline-block px-4 py-2 border border-teal-500 text-teal-500 rounded transition duration-300 hover:bg-teal-500 hover:text-white"
         >
-          Download CV
-        </a>
+          Know more
+        </button>
       </div>
     </div>
   );

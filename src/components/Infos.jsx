@@ -5,14 +5,6 @@ const Infos = () => {
   return (
     <div className="text-center py-20 bg-gray-100">
 
-<div className="flex justify-center items-center space-x-8 mb-10 mt-10">
-<a href="http://www.linkedin.com/in/diyar-aydin-ab902224a" target="_blank" rel="noopener noreferrer">
-  <FaLinkedin className="text-4xl text-teal-500 transition duration-300 hover:text-teal-700" />
-</a>
-<a href="https://github.com/daydinn" target="_blank" rel="noopener noreferrer">
-  <FaGithub className="text-4xl text-teal-500 transition duration-300 hover:text-teal-700" />
-</a>
-</div>
       <h1 className="text-4xl font-bold mb-10">My Documents</h1>
       
       {/* Display and download CV */}

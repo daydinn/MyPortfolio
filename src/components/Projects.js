@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { MdOutlineNavigateNext, MdOutlineNavigateBefore } from "react-icons/md";
 import { IoIosCloseCircleOutline } from "react-icons/io";
+import { FaLinkedin, FaGithub } from 'react-icons/fa';
+
 import profilePic from "../assets/profile picture.jpeg";
 import stone1 from "../assets/stone1.png";
 import stone2 from "../assets/stone2.png";
@@ -166,6 +168,8 @@ const projects = [
   },
 ];
 
+
+
 const Projects = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState({});
   const [fullScreenImage, setFullScreenImage] = useState(null);
@@ -176,8 +180,15 @@ const Projects = () => {
       [projectIndex]:
         prevState[projectIndex] !== undefined
           ? (prevState[projectIndex] + 1) % images.length
-          : 0,
+          : 1,
     }));
+
+    if (fullScreenImage) {
+      setFullScreenImage((prevState) => ({
+        ...prevState,
+        index: (prevState.index + 1) % prevState.images.length,
+      }));
+    }
   };
 
   const handlePrevImage = (projectIndex, images) => {
@@ -188,6 +199,27 @@ const Projects = () => {
           ? (prevState[projectIndex] - 1 + images.length) % images.length
           : images.length - 1,
     }));
+
+    if (fullScreenImage) {
+      setFullScreenImage((prevState) => ({
+        ...prevState,
+        index:
+          (prevState.index - 1 + prevState.images.length) %
+          prevState.images.length,
+      }));
+    }
+  };
+
+  const handleImageClick = (projectIndex, images) => {
+    setCurrentImageIndex((prevState) => ({
+      ...prevState,
+      [projectIndex]: prevState[projectIndex] !== undefined ? prevState[projectIndex] : 0,
+    }));
+    setFullScreenImage({ index: 0, images });
+  };
+
+  const closeFullScreen = () => {
+    setFullScreenImage(null);
   };
 
   const handleFullScreenNextImage = () => {
@@ -196,7 +228,7 @@ const Projects = () => {
       index: (prevState.index + 1) % prevState.images.length,
     }));
   };
-
+  
   const handleFullScreenPrevImage = () => {
     setFullScreenImage((prevState) => ({
       ...prevState,
@@ -205,15 +237,7 @@ const Projects = () => {
         prevState.images.length,
     }));
   };
-
-  const handleImageClick = (projectIndex, image, images) => {
-    setFullScreenImage({ index: 0, images });
-  };
-
-  const closeFullScreen = () => {
-    setFullScreenImage(null);
-  };
-
+  
   return (
     <div className="py-20">
       <div className="container mx-auto w-full lg:w-3/6">
@@ -224,8 +248,8 @@ const Projects = () => {
               key={projectIndex}
               className="bg-white shadow-lg rounded-lg overflow-hidden w-full border border-gray-200"
             >
-              <div className="relative">
-                <div className="w-full h-[48rem] flex justify-center items-center">
+              <div className="relative w-full h-[40rem]">
+                <div className=" flex justify-center items-center h-[38rem]">
                   <img
                     src={project.images[currentImageIndex[projectIndex] || 0]}
                     alt={project.title}
@@ -233,8 +257,7 @@ const Projects = () => {
                     onClick={() =>
                       handleImageClick(
                         projectIndex,
-                        project.images[currentImageIndex[projectIndex] || 0],
-                        project.images,
+                        project.images
                       )
                     }
                     style={{
@@ -245,12 +268,13 @@ const Projects = () => {
                     }}
                   />
                 </div>
+                
                 <MdOutlineNavigateBefore
-                  className="absolute inset-y-1/2 left-2 text-6xl text-cyan-500 cursor-pointer transform -translate-y-1/2"
+                  className="absolute inset-y-1/2 left-2 text-6xl text-cyan-500 hover:text-cyan-600 hover:scale-105 active:text-cyan-600 transition-transform duration-300 cursor-pointer transform -translate-y-1/2"
                   onClick={() => handlePrevImage(projectIndex, project.images)}
                 />
                 <MdOutlineNavigateNext
-                  className="absolute inset-y-1/2 right-2 text-6xl text-cyan-500 cursor-pointer transform -translate-y-1/2"
+                  className="absolute inset-y-1/2 right-2 text-6xl text-cyan-500 hover:text-cyan-600 hover:scale-105 active:text-cyan-600 transition-transform duration-300 cursor-pointer transform -translate-y-1/2"
                   onClick={() => handleNextImage(projectIndex, project.images)}
                 />
               </div>
@@ -264,14 +288,16 @@ const Projects = () => {
                 <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
                 <p className="text-gray-700 mb-4">{project.description}</p>
                 <div className="flex justify-start">
-                  <a
-                    href={project.liveLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-4 py-2 bg-teal-500 text-white rounded mr-4 transition duration-300 hover:bg-teal-700"
-                  >
-                    See Live
-                  </a>
+                  {project.liveLink && (
+                    <a
+                      href={project.liveLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-4 py-2 bg-teal-500 text-white rounded mr-4 transition duration-300 hover:bg-teal-700"
+                    >
+                      See Live
+                    </a>
+                  )}
                   <a
                     href={project.sourceLink}
                     target="_blank"
@@ -290,7 +316,7 @@ const Projects = () => {
       {fullScreenImage && (
         <div className="fixed inset-0 bg-black bg-opacity-75 flex flex-col justify-center items-center">
           <MdOutlineNavigateBefore
-            className="absolute inset-y-1/2 left-2 text-6xl text-cyan-500 cursor-pointer transform -translate-y-1/2"
+            className="absolute inset-y-1/2 left-2 text-6xl text-cyan-500 cursor-pointer transform -translate-y-1/2 hover:text-cyan-600 hover:scale-105 active:text-cyan-600 transition-transform duration-300 cursor-pointer transform -translate-y-1/2"
             onClick={handleFullScreenPrevImage}
           />
           <img
@@ -305,11 +331,11 @@ const Projects = () => {
             }}
           />
           <MdOutlineNavigateNext
-            className="absolute inset-y-1/2 right-2 text-6xl text-cyan-500 cursor-pointer transform -translate-y-1/2"
+            className="absolute inset-y-1/2 right-2 text-6xl text-cyan-500  hover:text-cyan-600 hover:scale-105 active:text-cyan-600 transition-transform duration-300 cursor-pointer transform -translate-y-1/2"
             onClick={handleFullScreenNextImage}
           />
           <IoIosCloseCircleOutline
-            className="absolute top-4 right-4 text-6xl text-white cursor-pointer"
+            className="absolute top-4 right-4 text-6xl text-white cursor-pointer hover:scale-110 transition-transform duration-300 "
             onClick={closeFullScreen}
           />
           <div className="absolute bottom-4 text-white text-xl">
@@ -317,7 +343,17 @@ const Projects = () => {
           </div>
         </div>
       )}
+      <div className="flex justify-center items-center space-x-8 mb-10 mt-10">
+<a href="http://www.linkedin.com/in/diyar-aydin-ab902224a" target="_blank" rel="noopener noreferrer">
+  <FaLinkedin className="text-4xl text-teal-500 transition duration-300 hover:text-teal-700" />
+</a>
+<a href="https://github.com/daydinn" target="_blank" rel="noopener noreferrer">
+  <FaGithub className="text-4xl text-teal-500 transition duration-300 hover:text-teal-700" />
+</a>
+</div>
     </div>
+
+
   );
 };
 

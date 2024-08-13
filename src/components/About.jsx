@@ -1,5 +1,5 @@
 import React from 'react';
-import profilePic from '../assets/pp4.png'; // Update with actual path
+import profilePic from '../assets/pp-1.jpeg'; // Update with actual path
 import { FaLinkedin, FaGithub } from 'react-icons/fa';
 
 

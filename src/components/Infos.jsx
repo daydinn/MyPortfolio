@@ -65,7 +65,7 @@ const Infos = () => {
 
        {/* Display and download Semester Learning Agreement */}
        <div className="mb-16">
-        <h2 className="text-2xl font-bold mb-4">Exchange Semester in Groningen</h2>
+        <h2 className="text-2xl font-bold mb-4">Exchange Semester in Netherlands</h2>
         <div className="flex justify-center">
           <iframe
             src="/assets/Learning Agreement_Diyar Aydin.pdf"

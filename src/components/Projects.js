@@ -68,7 +68,7 @@ const projects = [
   {
     title: "Gem Stone React Application",
     description:
-      "I developed a stone collection application for crystal enthusiasts who want to explore, catalog, and learn more about various crystals and their properties. The app features a comprehensive crystal database with detailed information on characteristics, chakras, elements, zodiac signs, and planetary associations. Users can create and edit their own crystal collections, mark favorites, maintain a wishlist, and update their profile information and picture. It also includes user authentication for personalized profiles and offers an interactive, responsive UI. The application is built using React, Tailwind CSS for styling, GitHub for version control, and Firebase for authentication, database, and storage.",
+      "I developed a stone collection application for crystal enthusiasts who want to explore, catalog, and learn more about various crystals and their properties. The app features a comprehensive crystal database with detailed information on characteristics, chakras, elements, zodiac signs, and planetary associations. Users can create and edit their own crystal collections, mark favorites, maintain a wishlist, and update their profile information and picture. It also includes user authentication for personalized profiles and offers an interactive, responsive UI. The application is built using React, Tailwind CSS for styling, GitHub for version control, utilizes HTTP methods for efficient data management and Firebase for authentication, database, and storage.",
     images: [
       stone1,
       stone2,

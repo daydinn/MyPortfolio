@@ -17,7 +17,7 @@ const Header = () => {
           onClick={handleKnowMoreClick}
           className="inline-block px-4 py-2 border border-teal-500 text-teal-500 rounded transition duration-300 hover:bg-teal-500 hover:text-white"
         >
-          Know more
+          My Documents
         </button>
       </div>
     </div>

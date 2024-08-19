@@ -242,7 +242,7 @@ const Projects = () => {
     
     <div className="py-20">
       <div className="container mx-auto w-full lg:w-3/6">
-        <h2 className="text-3xl font-bold text-center mb-10">Some of my projects</h2>
+        <h2 className="text-3xl font-bold text-center mb-10">Some of My projects</h2>
         <div className="flex flex-col gap-10 items-center">
           {projects.map((project, projectIndex) => (
             <div

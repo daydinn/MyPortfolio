@@ -95,7 +95,7 @@ const projects = [
   {
     title: "Realtor Clone React Application ",
     description:
-      "In this project, I developed a real estate application using React, Firebase, and Tailwind CSS. The app includes user authentication with Firebase Auth, allowing sign-up/in with username/password and Google OAuth. Users can reset their passwords and manage their profiles. Data is stored and fetched using Firebase Firestore, enabling full CRUD operations. The application features a modern UI with Tailwind CSS, a map integration using Leaflet, and an image slider with Swiper JS. Additional functionalities include private routes, custom hooks, notifications with React Toastify, and deployment to Vercel. Throughout the project, I utilized React hooks like useState and useEffect, React Router for navigation, and created reusable components such as listing cards.",
+      "In this project, I developed a real estate application using React, Firebase, and Tailwind CSS. The app includes user authentication with Firebase Auth, allowing sign-up/in with username/password and Google OAuth. Users can reset their passwords and manage their profiles. Data is stored and fetched using Firebase Firestore, enabling full CRUD operations with HTTP Methods. The application features a modern UI with Tailwind CSS, a map integration using Leaflet, and an image slider with Swiper JS. Additional functionalities include private routes, custom hooks, notifications with React Toastify, and deployment to Vercel. Throughout the project, I utilized React hooks like useState and useEffect, React Router for navigation, and created reusable components such as listing cards.",
     images: [
       realtor1,
       realtor2,

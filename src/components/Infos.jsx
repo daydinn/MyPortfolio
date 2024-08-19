@@ -3,7 +3,7 @@ import { IoMdDownload } from 'react-icons/io';
 
 const Infos = () => {
   return (
-    <div className="text-center py-20 bg-gray-100">
+    <div className="text-center pb-20 bg-gray-100">
 
       
       {/* Display and download CV */}
